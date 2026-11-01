@@ -1,0 +1,33 @@
+---
+lng_pair: id_ai
+title: "AI 공부 정리"
+
+author: 한동관
+category: AI
+tags: [AI]
+img: ":cover-transformer.png"
+
+permalink: /posts/ai/
+date: 2026-10-29 10:00:00 +0900
+---
+<!-- outline-start -->
+
+선배님과 함께 공부한 신경망 내용을 5페이지로 정리했습니다. 어려운 개념은 제가 이해한 말로 다시 적어 두었습니다.<!-- outline-end -->
+
+## 배운 내용
+
+- 단층 퍼셉트론은 직선 하나로 나누기 때문에 XOR 문제를 풀 수 없습니다. 은닉층을 넣은 MLP로 풀 수 있습니다.
+- 트랜스포머의 어텐션은 Query, Key, Value 세 가지를 씁니다. Query와 Key로 어떤 단어와 관련이 있는지 계산하고, 그 결과로 Value를 가져옵니다.
+- 어텐션은 단어를 한꺼번에 보기 때문에 순서 정보가 없습니다. 그래서 위치마다 다른 값(포지셔널 인코딩)을 더해 줍니다.
+- 「나는 영화를 좋아해」를 예로 어텐션을 직접 계산해 봤습니다. Q와 K의 내적으로 점수를 구하고, √dₖ로 나눈 뒤 Softmax로 확률을 만들고, 그 확률만큼 V를 섞습니다.
+
+## 정리한 페이지
+
+노션에 정리한 페이지입니다. 누르면 노션으로 이동합니다.
+
+1. [퍼셉트론과 MLP](https://www.notion.so/408ba972198d81bb8ad1d62ba9d73956)
+2. [CNN (합성곱 신경망)](https://www.notion.so/408ba972198d81168c06eab256bf78ed)
+3. [트랜스포머 구조](https://www.notion.so/408ba972198d818e8e1dc7b54842243d)
+4. [트랜스포머 계산](https://www.notion.so/408ba972198d81729a81eb08dc03030f)
+5. [Jev 개념과 특징](https://www.notion.so/408ba972198d81539fa8f998a57f1385)
+

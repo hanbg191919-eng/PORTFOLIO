@@ -1,0 +1,101 @@
+@charset "UTF-8";
+/* 넓은 화면에서 본문이 왼쪽으로 쏠리는 문제 수정.
+ *
+ * 테마 기본값은 #main-wrapper 에 padding-left: var(--side-nav-width) 를 주고
+ * .main-container 는 max-width 만 갖는다. 그래서 남는 폭이 전부 오른쪽에만 쌓인다.
+ * 실측(1920x1080): .main-container 가 left 230 / right 1110 에 놓여 오른쪽 810px 가 비었다.
+ *
+ * 본문 폭(--main-container-width-limit: 800px)은 그대로 두고 위치만 가운데로 보낸다.
+ * 폭을 키우면 한 줄이 길어져 읽기가 나빠진다.
+ *
+ * 이 파일은 main.scss 의 맨 끝에서 import 한다 — 위 규칙들을 덮어써야 하기 때문이다.
+ */
+
+/* 사이드바 오른쪽 공간에서 본문을 가운데로 보낼 때 밀어야 하는 거리.
+ * 공간이 본문보다 좁으면(좁은 화면) 0 이 되어 기존 동작이 그대로 유지된다.
+ * position: fixed 요소는 auto 마진이 듣지 않아 이 값을 직접 쓴다. */
+:root {
+  --content-center-offset: max(
+    0px,
+    calc(
+      (100vw - var(--side-nav-width) - var(--main-container-max-width)) / 2
+    )
+  );
+}
+
+/* 일반 흐름 요소는 auto 마진으로 가운데 정렬한다.
+ * 부모의 실제 폭을 쓰기 때문에 스크롤바 폭 오차가 없다. */
+.main-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 푸터는 position: fixed 다. left 와 right 를 모두 주고 width 를 풀어야
+ * auto 마진이 가운데 정렬로 해석된다. */
+.footer-container {
+  right: 0;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 맨 위로 버튼은 본문 오른쪽 끝에 붙어 있어야 한다.
+ * 가운데 정렬 후 본문 오른쪽 끝 = (100vw + 사이드바 + 본문폭) / 2 다. */
+#scroll-to-top {
+  left: min(
+    calc(100vw - (var(--main-container-margin) / 2) - 40px),
+    calc(
+      (100vw + var(--side-nav-width) + var(--main-container-max-width)) / 2 -
+        var(--main-container-margin)
+    )
+  );
+}
+
+/* 검색창과 검색 결과도 본문과 같은 만큼 오른쪽으로 민다. */
+.searchbox-container {
+  left: calc(
+    var(--side-nav-width) + 5px + var(--content-center-offset)
+  );
+}
+
+#search-results {
+  max-width: calc(
+    100vw - (
+        var(--side-nav-width) + var(--main-container-margin) +
+          var(--search-results-margin-left) + var(--content-center-offset)
+      )
+  );
+}
+
+/* 소개 페이지: 좁은 화면에서 헤더가 컨테이너 밖으로 밀려 가로 스크롤이 생긴다.
+ *
+ * .about-header 는 position: absolute 에 width 가 없어서 shrink-to-fit 으로 폭이 정해진다.
+ * 그 폭은 "컨테이너 폭 - margin-left(160px) - margin-right(-20px)" 이므로
+ * margin-right 의 음수값만큼 컨테이너보다 넓어질 수 있다.
+ * 500px 이하에서는 .about-container 의 5% 좌우 여백까지 사라져 그대로 화면 밖으로 나간다.
+ *
+ * 실측: 320px 에서 24px, 375px 에서 22px 넘침. 500px 이상에서는 넘치지 않는다.
+ *
+ * left/right 를 둘 다 주어 절대 위치 박스에 오른쪽 경계를 만든다.
+ * 그러면 폭이 "컨테이너 폭 - 160px" 으로 묶여 밖으로 나갈 수 없다.
+ */
+@media screen and (max-width: 500px) {
+  .about-container .about-header {
+    left: 0;
+    right: 0;
+    margin-right: 0;
+  }
+
+  /* .row 의 좌우 -15px 은 원래 부모의 15px 패딩이 흡수한다.
+   * .about-container 는 padding: 0 이라 흡수할 것이 없어서 그대로 밖으로 나간다. */
+  .about-container .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* h1 의 width: calc((100vw - 사이드바) / 2) 는 사이드바가 없는 좁은 화면에서
+   * 화면의 절반을 그대로 쓴다. margin-left: 160px 과 더해지면 화면을 넘는다. */
+  .about-container .about-header > h1 {
+    width: auto;
+  }
+}

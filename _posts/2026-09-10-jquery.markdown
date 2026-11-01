@@ -1,0 +1,31 @@
+---
+lng_pair: id_jquery
+title: "jQuery 정리"
+
+author: 한동관
+category: 프론트엔드
+tags: [jQuery]
+img: ":cover-jq.png"
+
+permalink: /posts/jquery/
+date: 2026-09-10 11:00:00 +0900
+---
+<!-- outline-start -->
+
+jQuery 실습 파일 8개를 5페이지로 정리했습니다.<!-- outline-end -->
+
+## 배운 내용
+
+- jQuery 애니메이션은 큐에 쌓여서 순서대로 실행됩니다. 마우스를 여러 번 올렸다 내리면 그만큼 계속 움직이기 때문에, 앞에 `stop()`을 붙여 진행 중인 애니메이션을 멈춥니다.
+- `mouseover`는 자식 요소에 들어갈 때도 다시 발생합니다. `hover`(`mouseenter`, `mouseleave`)는 그렇지 않습니다.
+- 스크롤 이벤트는 아주 자주 발생하므로, 필요한 값은 미리 구해 두고 이벤트 안에서는 비교만 하는 게 좋습니다.
+
+## 정리한 페이지
+
+노션에 정리한 페이지입니다. 누르면 노션으로 이동합니다.
+
+1. [jQuery 기초와 선택자](https://www.notion.so/3d7ba972198d81f0a245f318636c9c9c)
+2. [탐색 선택자와 DOM 조작](https://www.notion.so/3d7ba972198d8146a4e6cd22657909ee)
+3. [이벤트 처리 (click · mouseover · hover)](https://www.notion.so/3d7ba972198d81c89faeda60e8c2f8d0)
+4. [Effect와 animate](https://www.notion.so/3d7ba972198d81c9ad07ff3e37dcbc17)
+5. [애니메이션 큐 제어와 스크롤 인터랙션](https://www.notion.so/3d7ba972198d81b3bef7e1c5aed4796a)

@@ -1,0 +1,40 @@
+---
+lng_pair: id_oracle
+title: "Oracle SQL 정리"
+
+author: 한동관
+category: 데이터베이스
+tags: [Oracle]
+img: ":cover-oracle.png"
+
+permalink: /posts/oracle/
+date: 2026-10-30 10:00:00 +0900
+---
+<!-- outline-start -->
+
+Oracle 수업 실습과 워크시트, scott · HR 스키마 문제를 풀면서 만든 SQL 파일 17개를 14페이지로 정리했습니다.<!-- outline-end -->
+
+## 정리하다가 고친 것
+
+- `'SALESMAN'`을 `'SEALESMAN'`으로 잘못 적은 쿼리가 있어서 고쳤습니다. 값을 잘못 적으면 에러 없이 결과만 0건이 나옵니다.
+- `> ANY`와 `> ALL` 설명이 반대로 적혀 있던 것을 고쳤습니다. `> ANY`는 가장 작은 값보다 크면, `> ALL`은 가장 큰 값보다 크면 참입니다.
+- 일부러 에러가 나게 만든 쿼리는 지우지 않고 왜 에러가 나는지 주석을 달았습니다.
+
+## 정리한 페이지
+
+노션에 정리한 페이지입니다. 누르면 노션으로 이동합니다.
+
+1. [SELECT 기초와 WHERE 조건](https://www.notion.so/409ba972198d81daafaceb539bb75163)
+2. [문자·숫자·날짜 함수](https://www.notion.so/409ba972198d81c19d03de112bc06716)
+3. [형 변환 · NULL 처리 · 조건문 (DECODE, CASE)](https://www.notion.so/409ba972198d81819a7dd9f6d8978a16)
+4. [그룹 함수와 GROUP BY · HAVING](https://www.notion.so/409ba972198d81b8826cfa83372f9707)
+5. [데이터 분석 함수 (RANK, LAG, ROLLUP)](https://www.notion.so/409ba972198d81b98bffea02fda525e8)
+6. [함수 연습문제](https://www.notion.so/409ba972198d8157b5f7ed6d77a9d27b)
+7. [조인 (오라클 조인과 ANSI 조인)](https://www.notion.so/409ba972198d819caa8be883529d9d29)
+8. [집합 연산자](https://www.notion.so/409ba972198d8186abcbf53487d96590)
+9. [HR 스키마와 수행평가 대비 조인 문제](https://www.notion.so/409ba972198d8171a8abc4a681bb02e1)
+10. [서브쿼리](https://www.notion.so/409ba972198d8159a4dcf8f4239d3b30)
+11. [데이터 입력 · 수정 · 삭제와 트랜잭션](https://www.notion.so/409ba972198d81fbb3eafb2e59469643)
+12. [테이블 설계와 인덱스](https://www.notion.so/409ba972198d81f2b453ead5340db962)
+13. [JSP 프로젝트용 테이블 (exam1–5)](https://www.notion.so/409ba972198d81feb78fde800238b881)
+14. [SQL Developer 실행 기록](https://www.notion.so/409ba972198d8145b488e07b19202be5)

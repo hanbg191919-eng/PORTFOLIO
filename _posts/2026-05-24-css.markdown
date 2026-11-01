@@ -1,0 +1,34 @@
+---
+lng_pair: id_css
+title: "CSS 정리"
+
+author: 한동관
+category: 프론트엔드
+tags: [CSS]
+img: ":cover-css.png"
+
+permalink: /posts/css/
+date: 2026-05-24 11:00:00 +0900
+---
+<!-- outline-start -->
+
+CSS 실습 파일(`web/basic/22~35.html`)을 7페이지로 정리했습니다. 선택자부터 float, position으로 레이아웃을 만드는 것까지 배웠습니다.<!-- outline-end -->
+
+## 배운 내용
+
+- 자식을 모두 `float`하면 부모의 높이가 0이 됩니다. `overflow: hidden`이나 clearfix(`::after`)로 해결합니다.
+- `width`에 `padding`과 `border`가 더해져서 박스가 커집니다. `box-sizing: border-box`를 쓰면 `width` 안에 포함됩니다.
+- `position: absolute`는 `position`이 지정된 가장 가까운 부모를 기준으로 합니다. 부모에 `relative`를 주면 그 부모가 기준이 됩니다.
+- 화면에서만 숨기고 스크린리더는 읽게 하려면 `display: none` 대신 IR 기법(크기를 1px로 줄이고 `clip`으로 자르기)을 씁니다.
+
+## 정리한 페이지
+
+노션에 정리한 페이지입니다. 누르면 노션으로 이동합니다.
+
+1. [CSS 선택자와 디자인 타겟팅](https://www.notion.so/36aba972198d80599791e22aa703af0d)
+2. [박스 모델과 오버플로우 제어](https://www.notion.so/36aba972198d8083b5b2f5cdc53962bb)
+3. [Float 기반의 레이아웃 구조화 및 네비게이션 설계](https://www.notion.so/36aba972198d809a961bf1c40d4df50e)
+4. [CSS 포지셔닝과 정밀한 요소 배치](https://www.notion.so/36aba972198d80b29d6ecb2c0cf0864e)
+5. [고정형(Fixed) 레이아웃과 시맨틱 UI 설계](https://www.notion.so/36aba972198d804abcaced4a01799a30)
+6. [동적 네비게이션 메뉴와 트랜지션 효과](https://www.notion.so/36aba972198d80e48dd4e9896f48d691)
+7. [웹 접근성을 고려한 의미론적 숨김 처리 (IR 기법)](https://www.notion.so/36aba972198d80cba36dedd97fcc4023)
