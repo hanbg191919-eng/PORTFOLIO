@@ -190,7 +190,7 @@ cookie_consent:
     msg: >
       이 웹사이트는 쿠키를 사용하여 사이트 기능을 최적화합니다.
       귀하의 승인으로 활성화됩니다.
-    privacy_msg: $privacy_link를 확인하십시오.
+    privacy_msg: $privacy_link을 확인해 주세요.
     buttons:
       accept: &accept_button 모두 허용
       settings: 커스터마이징
@@ -201,7 +201,7 @@ cookie_consent:
     msg: >
       이 웹사이트는 쿠키를 사용하여 사이트 기능을 최적화합니다.
       귀하의 승인으로 활성화됩니다. 쿠키 정책을 보려면 아래 각 항목을 클릭하십시오.
-    privacy_msg: $privacy_link를 확인하십시오.
+    privacy_msg: $privacy_link을 확인해 주세요.
     buttons:
       accept: *accept_button
       save: 선택 허용
