@@ -22,7 +22,8 @@
     {%- if contact_const.icon contains 'http://' or contact_const.icon contains 'https://' or icon_first_chr == '/' %}
       {%- assign contact_icon_src = contact_const.icon -%}
       {%- if icon_first_chr == '/' -%}{%- assign contact_icon_src = site.baseurl | append: contact_const.icon -%}{%- endif -%}
-      {%- capture contact_icon_tag -%} <img src="{{ contact_icon_src }}" alt="{{ account_key }}"/> {%- endcapture %}
+      {%- comment -%} alt 먼저: 본문의 img-path-converter가 `<img src="`에 baseurl을 한 번 더 붙이지 않게 {%- endcomment -%}
+      {%- capture contact_icon_tag -%} <img alt="{{ account_key }}" src="{{ contact_icon_src }}"/> {%- endcapture %}
     {% else %}
       {%- capture contact_icon_tag -%} <i class="{{ contact_const.icon }}" aria-hidden="true"></i> {%- endcapture %}
     {% endif -%}
