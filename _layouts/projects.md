@@ -78,7 +78,7 @@ layout: default
 {%- endfor %}
 
 <script>
-  // 분류 버튼: 누르면 그 분류만 보이고, 같은 버튼을 다시 누르면 전체가 다시 보인다
+  /* 분류 버튼: 누르면 그 분류만 보이고, 같은 버튼을 다시 누르면 전체가 다시 보인다 (HTML 압축이 줄바꿈을 지우므로 // 주석 금지) */
   (function () {
     var buttons = document.querySelectorAll('[data-project-filter]');
     var cards = document.querySelectorAll('[data-project-category]');
