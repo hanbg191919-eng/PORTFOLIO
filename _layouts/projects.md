@@ -27,7 +27,7 @@ layout: default
   <p {{ color_style }}>{{ project_data.main.info | default: "No data, check page_data in [language]/tabs/projects.md front matter or _data/content/projects/[language].yml" }}</p>
   <div class="multipurpose-button-wrapper">
   {% for category in project_data.category %}
-    <a href="#{{ category.type }}" role="button" class="multipurpose-button project-buttons" style="background-color:{{ category.color }};">{{ category.title }}</a>
+    <a href="#{{ category.type }}" role="button" aria-pressed="false" data-project-filter="{{ category.type }}" class="multipurpose-button project-buttons" style="background-color:{{ category.color }};">{{ category.title }}</a>
   {% endfor %}
   </div>
 </div>
@@ -36,7 +36,7 @@ layout: default
   {%- capture first_category_id -%} id="{{ category.type }}" {%-endcapture-%}
   {% for list in project_data.list -%}
     {%- if list.type != category.type %}{% continue %}{% endif -%}
-    <div class="multipurpose-container project-container" {{ first_category_id }}>
+    <div class="multipurpose-container project-container" data-project-category="{{ category.type }}" {{ first_category_id }}>
       {%-assign first_category_id=nil -%}
       {%- include multi_lng/get-localized-long-date-format.liquid date = list.date -%}
       <div class="row">
@@ -76,3 +76,32 @@ layout: default
     </div>
   {%- endfor %}
 {%- endfor %}
+
+<script>
+  // 분류 버튼: 누르면 그 분류만 보이고, 같은 버튼을 다시 누르면 전체가 다시 보인다
+  (function () {
+    var buttons = document.querySelectorAll('[data-project-filter]');
+    var cards = document.querySelectorAll('[data-project-category]');
+    var active = null;
+    function apply(type) {
+      active = type;
+      cards.forEach(function (card) {
+        card.style.display = !type || card.getAttribute('data-project-category') === type ? '' : 'none';
+      });
+      buttons.forEach(function (btn) {
+        var on = btn.getAttribute('data-project-filter') === type;
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.style.opacity = type && !on ? '0.5' : '';
+      });
+    }
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var type = btn.getAttribute('data-project-filter');
+        apply(active === type ? null : type);
+      });
+    });
+    var start = location.hash.replace('#', '');
+    if (document.querySelector('[data-project-filter="' + start + '"]')) apply(start);
+  })();
+</script>
